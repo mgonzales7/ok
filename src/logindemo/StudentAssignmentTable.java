@@ -72,7 +72,7 @@ public class StudentAssignmentTable extends javax.swing.JFrame {
         StudentNameLabel1.setText(StudentNameLabel1.getText() + name);
 
         if(file_system.check_existance(name.toString()+id.toString()+"weight.csv")){
-             ArrayList<ArrayList<String>> data = file_system.read_from_file(name.toString()+id.toString()+"weights.csv",student_headers);
+             ArrayList<ArrayList<String>> data = file_system.read_from_file(name.toString()+id.toString()+"weight.csv",student_headers);
              ArrayList<String> weights = data.get(1);
              weight1.setText(weights.get(0));
              weight2.setText(weights.get(1));
@@ -80,6 +80,7 @@ public class StudentAssignmentTable extends javax.swing.JFrame {
         }
              
          else {
+             file_system.create_file(name.toString()+id.toString()+"weight.csv");
             weight1.setText("33");
             weight2.setText("33");
             weight3.setText("33");
