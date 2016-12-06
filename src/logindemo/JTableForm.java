@@ -31,7 +31,7 @@ public class JTableForm extends javax.swing.JFrame {
           for(int i = 1; i < data.size();i++)
           {
                DefaultTableModel model = (DefaultTableModel) jTable_TableDemo.getModel();
-               model.addRow(new Object[]{data.get(i).get(0), data.get(i).get(1), data.get(i).get(2)});
+               model.addRow(new Object[]{data.get(i).get(0), data.get(i).get(1), data.get(i).get(2), data.get(i).get(3), data.get(i).get(4)});
           }
         }
         else
@@ -78,6 +78,10 @@ public class JTableForm extends javax.swing.JFrame {
         GradeTextField = new javax.swing.JTextField();
         updatebutton = new javax.swing.JButton();
         StudentViewButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        GradeTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        GradeTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,7 +104,7 @@ public class JTableForm extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Class Name", "Section", "# Assignments"
+                "Class Name", "Section", "# of HWs", "# of Quizzes", "# of Tests"
             }
         ));
         jScrollPane1.setViewportView(jTable_TableDemo);
@@ -115,7 +119,7 @@ public class JTableForm extends javax.swing.JFrame {
 
         jLabel2.setText("Section:");
 
-        jLabel3.setText("# Assignments:");
+        jLabel3.setText("# of Hws");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,6 +167,16 @@ public class JTableForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setText("# of Quizzes");
+
+        GradeTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GradeTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("# of Tests");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,25 +191,37 @@ public class JTableForm extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(savebutton))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
+                                .addGap(10, 10, 10)
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(NameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(18, 18, 18)
                                 .addComponent(addbutton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(removebutton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(updatebutton))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jLabel2))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jLabel3)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(IDTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(GradeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(GradeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(GradeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(GradeTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 46, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +255,13 @@ public class JTableForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(GradeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(GradeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(GradeTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(GradeTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +292,7 @@ public class JTableForm extends javax.swing.JFrame {
     private void addbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbuttonActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) jTable_TableDemo.getModel();
-        model.addRow(new Object[]{NameTextField.getText(), IDTextField.getText(), GradeTextField.getText()});
+        model.addRow(new Object[]{NameTextField.getText(), IDTextField.getText(), GradeTextField.getText(), GradeTextField1.getText(), GradeTextField2.getText()});
     }//GEN-LAST:event_addbuttonActionPerformed
 
     private void removebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removebuttonActionPerformed
@@ -287,8 +319,10 @@ public class JTableForm extends javax.swing.JFrame {
         file_system.update_file("overview.csv",overview_headers,tableDataToArray());
         Object selected_id = jTable_TableDemo.getValueAt(jTable_TableDemo.getSelectedRow(),1);
         Object selected_name = jTable_TableDemo.getValueAt(jTable_TableDemo.getSelectedRow(),0);
-        Object num = jTable_TableDemo.getValueAt(jTable_TableDemo.getSelectedRow(),2);
-        StudentAssignmentTable o = new StudentAssignmentTable(selected_id,selected_name, num);
+        Object num1 = jTable_TableDemo.getValueAt(jTable_TableDemo.getSelectedRow(),2);
+        Object num2 = jTable_TableDemo.getValueAt(jTable_TableDemo.getSelectedRow(),3);
+        Object num3 = jTable_TableDemo.getValueAt(jTable_TableDemo.getSelectedRow(),4);
+        StudentAssignmentTable o = new StudentAssignmentTable(selected_id,selected_name, num1, num2, num3);
         o.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_StudentViewButtonActionPerformed
@@ -296,6 +330,10 @@ public class JTableForm extends javax.swing.JFrame {
     private void NameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NameTextFieldActionPerformed
+
+    private void GradeTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GradeTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GradeTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -337,6 +375,8 @@ public class JTableForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField GradeTextField;
+    private javax.swing.JTextField GradeTextField1;
+    private javax.swing.JTextField GradeTextField2;
     private javax.swing.JTextField IDTextField;
     private javax.swing.JTextField NameTextField;
     private javax.swing.JButton StudentViewButton;
@@ -345,6 +385,8 @@ public class JTableForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_TableDemo;
